@@ -1,15 +1,6 @@
 const getNthElement = (index, array) => {
-  const maxArrayindex = (array.length - 1);
-  // console.log(maxArrayindex);
-  const indexGiven = index;
-  // console.log(indexGiven);
-
-  if (indexGiven > maxArrayindex) {
-    const newIndex = indexGiven - 4;
-    // console.log('here');
-    return array[newIndex];
-  }
-  return array[indexGiven];
+  const newIndex = index < array.length ? index : index - array.length;
+  return array[newIndex];
 };
 
 const arrayToCSVString = (array) => {
@@ -24,6 +15,7 @@ const csvStringToArray = (string) => {
 
 const addToArray = (element, array) => {
   array.push(element);
+  return array;
 };
 
 const addToArray2 = (element, array) => {
@@ -35,29 +27,15 @@ const addToArray2 = (element, array) => {
 };
 
 const removeNthElement = (index, array) => {
-  return array.splice(index, 1);
+  array.splice(index, 1);
+  return array;
 };
 
 const numbersToStrings = (numbers) => {
-  // const numberStringArray = [];
-  // for (let i = 0; i < numbers.length; i++) {
-  //   numberStringArray.push(numbers[i].toString());
-  // }
-  // return numberStringArray;
-
-  function turnIntoString(numberasnumber) {
-    return numberasnumber.toString();
-  }
-  return numbers.map(turnIntoString);
+  return numbers.map(String);
 };
 
 const uppercaseWordsInArray = (strings) => {
-  // const upperCaseArray = [];
-  // for (let i = 0; i < strings.length; i++) {
-  //   upperCaseArray.push(strings[i].toUpperCase());
-  // }
-  // return upperCaseArray;
-
   function toUpperCase(lowerCaseString) {
     return lowerCaseString.toUpperCase();
   }
@@ -94,16 +72,6 @@ const removeNthElement2 = (index, array) => {
 };
 
 const elementsStartingWithAVowel = (strings) => {
-  // const vowelElements = [];
-  // for (let i = 0; i < strings.length; i++) {
-  //   const currentString = strings[i];
-  //   const lowerString = currentString.toLowerCase();
-  //   if (lowerString[0] === 'a' || lowerString[0] === 'e' || lowerString[0] === 'i' || lowerString[0] === 'o' || lowerString[0] === 'u') {
-  //     vowelElements.push(currentString);
-  //   }
-  // }
-  // return vowelElements;
-
   return strings.filter((element) => {
     const lowerString = element.toLowerCase();
     return lowerString[0] === 'a' || lowerString[0] === 'e' || lowerString[0] === 'i' || lowerString[0] === 'o' || lowerString[0] === 'u';
@@ -116,12 +84,6 @@ const removeSpaces = (string) => {
 };
 
 const sumNumbers = (numbers) => {
-  // let total = 0;
-  // for (let i = 0; i < numbers.length; i++) {
-  //   total += numbers[i];
-  // }
-  // return total;
-
   function getSum(a, b) {
     return a + b;
   }
