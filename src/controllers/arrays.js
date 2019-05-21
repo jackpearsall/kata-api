@@ -10,7 +10,7 @@ exports.getNthElement = (req, res) => {
   res.status(200).json({ result: getNthElement(req.params.index, req.body.array) });
 };
 
-exports.subarrayToCSVStringtract = (req, res) => {
+exports.arrayToCSVString = (req, res) => {
   res.status(200).json({ result: arrayToCSVString(req.body.array) });
 };
 
