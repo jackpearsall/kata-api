@@ -110,5 +110,25 @@ describe('/objects', () => {
           done();
         });
     });
+    it('errors if the supplied age parameters are not numbers', (done) => {
+      chai.request(server)
+        .post('/objects/average-age')
+        .send({
+          people: [{
+            name: 'George',
+            age: 30,
+          },
+          {
+            name: 'Fred',
+            age: 'twenty',
+          }],
+        })
+        .end((err, res) => {
+          expect(err).to.equal(null);
+          expect(res.status).to.equal(400);
+          expect(res.body).to.eql({ error: 'One of more of the supplied age paramaters are not numbers' });
+          done();
+        });
+    });
   });
 });

@@ -29,10 +29,9 @@ exports.findHondas = (req, res) => {
 
 exports.averageAge = (req, res) => {
   const people = req.body.people;
-  // console.log(people);
-  // if (averageAge(cars).length === 0) {
-  // res.status(400).json({ error: 'Supplied array contains no cars manufactured by honda' });
-  // } else {
-  res.status(200).json({ result: averageAge(people) });
-  // }
+  const allAgesAreNotNumbers = people.map(person => person.age).some(age => isNaN(age));
+  if (allAgesAreNotNumbers) {
+    return res.status(400).json({ error: 'One of more of the supplied age paramaters are not numbers' });
+  }
+  return res.status(200).json({ result: averageAge(people) });
 };
