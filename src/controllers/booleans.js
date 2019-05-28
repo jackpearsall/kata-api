@@ -23,8 +23,7 @@ exports.isOdd = (req, res) => {
 };
 
 exports.startsWith = (req, res) => {
-  const string = req.params.string;
-  const character = req.params.character;
+  const { string, character } = req.params;
   if (character.length !== 1) {
     res.status(400).json({ error: 'Parameter "character" must be a single character.' });
   } else {

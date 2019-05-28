@@ -4,10 +4,12 @@ const numbersRouter = require('./routes/numbers');
 const booleansRouter = require('./routes/booleans');
 const arraysRouter = require('./routes/arrays');
 const objectsRouter = require('./routes/objects');
+const logging = require('./middlewares/logging');
 
 const app = express();
 
 app.use(express.json());
+app.use(logging);
 
 app.use('/strings', stringsRouter);
 
