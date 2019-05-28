@@ -25,38 +25,19 @@ const isOver65 = (person) => {
 };
 
 const getAges = (people) => {
-  // const agesArray = [];
-  // for (let i = 0; i < people.length; i++) {
-  //   agesArray.push(people[i].age);
-  // }
-  // return agesArray;
-
   return people.map((person) => {
     return person.age;
   });
 };
 
 const findByName = (name, people) => {
-  // const filteredNames = [];
-  // for (let i = 0; i < people.length; i++) {
-  //   // console.log(people.name);
-  //   if (this.name === name) {
-  //     filteredNames.push(people[i]);
-  //   }
-  // }
-
   return people.find((person) => {
     return person.name === name;
   });
 };
 
 const findHondas = (cars) => {
-  const hondas = [];
-  for (let i = 0; i < cars.length; i++) {
-    if (cars[i].manufacturer === 'Honda') {
-      hondas.push(cars[i]);
-    }
-  }
+  const hondas = cars.filter(obj => obj.manufacturer === 'Honda');
   return hondas;
 };
 
